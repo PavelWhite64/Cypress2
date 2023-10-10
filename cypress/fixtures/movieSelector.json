@@ -1,0 +1,5 @@
+{
+    "listDay": ".page-nav__day",
+    "listMovie": ".movie",
+    "seats": "`.buying-scheme__wrapper > :nth-child(${seat.row}) > :nth-child(${seat.seat})`"
+}

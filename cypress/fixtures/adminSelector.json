@@ -1,0 +1,5 @@
+{
+    "Email_Input": "[for='email'] > .login__input",
+    "Password_Input": "[for='pwd'] > .login__input",
+    "button": ".login__button"
+}
