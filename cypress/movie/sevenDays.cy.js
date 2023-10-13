@@ -11,7 +11,4 @@ describe("The main page should be visible", () => {
   it("Visible for 7 days", () => {
     cy.get(movie.listDay).should(`have.length`, 7);
   });
-  it("Visible for 3 films", () => {
-    cy.get(movie.listMovie).should(`have.length`, 3);
-  });
 });

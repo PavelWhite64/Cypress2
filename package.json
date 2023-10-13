@@ -4,11 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:admin:chrome": "cypress run --record --group admin --spec \"cypress/admin/admin.cy.js\" --browser chrome",
+    "test:movie:chrome": "cypress run --record --group movie --spec \"cypress/movie/movieVisible.cy.js\" --browser chrome",
+    "test:seats:chrome": "cypress run --record --group seats --spec \"cypress/seats/seats.cy.js\" --browser chrome",
+    "tests:chrome": "run-p -c test:admin:chrome test:movie:chrome test:seats:chrome",
+
+    "test:admin:firefox": "cypress run --record --group admin --spec \"cypress/admin/admin.cy.js\" --browser firefox",
+    "test:movie:firefox": "cypress run --record --group movie --spec \"cypress/movie/movieVisible.cy.js\" --browser firefox",
+    "test:seats:firefox": "cypress run --record --group seats --spec \"cypress/seats/seats.cy.js\" --browser firefox",
+    "tests:firefox": "run-p -c test:admin:firefox test:movie:firefox test:seats:firefox",
+
+    "test:admin:electron": "cypress run --record --group admin --spec \"cypress/admin/admin.cy.js\" --browser electron",
+    "test:movie:electron": "cypress run --record --group movie --spec \"cypress/movie/movieVisible.cy.js\" --browser electron",
+    "test:seats:electron": "cypress run --record --group seats --spec \"cypress/seats/seats.cy.js\" --browser electron",
+    "tests:electron": "run-p -c test:admin:electron test:movie:electron test:seats:electron",
+
+    "tests:otherBrowser": "run-p -c test:admin:electron test:movie:chrome test:seats:firefox",
+
+    "test:admin:package": "cypress run --record  --group admin --spec \"cypress/admin/*\" --browser electron",
+    "test:movie:package": "cypress run --record  --group movie --spec \"cypress/movie/*\" --browser firefox",
+    "tests:package": "run-p -c test:admin:package test:movie:package"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.3.0"
+    "cypress": "^13.3.0",
+    "npm-run-all": "^4.1.5"
   }
 }
